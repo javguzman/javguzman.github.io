@@ -5883,12 +5883,12 @@ strong
 				
 			.grid-containersubrow {
 				display: grid;
-				grid-template-columns: 10px 15% auto;
+				grid-template-columns: auto 15% auto;
 				grid-gap: 10px;
 				background-color: #2195f300;
 				padding: 10px;
-				margin-right: 300px;
-				margin-left:100px;
+				margin-right: 30px;
+				margin-left: 30px;
 			  }
 			  
 			  .grid-containersubrow > div {
@@ -5906,7 +5906,7 @@ strong
 			  .ParagraghIndent{
 				text-align: left !important;
 				padding-top: 50px;
-				padding-left: 100px;
+				padding-left: 20px;
 			  }
 		  
 			.item1 {
