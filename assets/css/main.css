@@ -1933,7 +1933,7 @@ input, select, textarea {
 			input[type="button"].icon,
 			button.icon,
 			.button.icon {
-				padding: 0;
+				padding: 1;
 			}
 
 		}
@@ -1945,7 +1945,7 @@ input, select, textarea {
 		input[type="button"],
 		button,
 		.button {
-			padding: 0;
+			padding: 1;
 		}
 
 	}
