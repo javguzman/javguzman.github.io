@@ -1,0 +1,136 @@
+/* links.css — small "post-it" link cards matching main.css look */
+
+/* Reuse site fonts and base colors */
+.links-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 1.25rem;
+  padding: 0 12px;
+}
+
+.links-header h1 {
+  margin: 0 0 6px;
+  font-family: 'Changa One', sans-serif;
+  font-weight: 400;
+  line-height: 1.02;
+  color: #464d3a;
+}
+
+.links-header .lead {
+  margin: 0;
+  color: #60684f;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+}
+
+/* Grid of post-it cards */
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 12px 18px;
+}
+
+/* Post-it card style */
+.link-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 14px 16px;
+  background: linear-gradient(180deg, #2f3526 0%, #242816 100%); /* dark card */
+  border: 1px solid rgba(255,255,255,0.06); /* subtle light edge */
+  box-shadow: 0 6px 18px rgba(8,10,6,0.10); /* gentle depth */
+  border-radius: 8px;
+  text-decoration: none;
+  color: #fbfcf8; /* light text on dark card */
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+  min-height: 84px;
+}
+
+/* Subtle rotation note for "post-it" vibe on larger screens */
+@media (min-width: 900px) {
+  .link-card:nth-child(odd) { transform: rotate(-0.6deg); }
+  .link-card:nth-child(even) { transform: rotate(0.4deg); }
+}
+
+.link-card:hover,
+.link-card:focus {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 14px 28px rgba(8,10,6,0.14);
+  border-color: rgba(255,255,255,0.10);
+}
+
+/* Titles and descriptions inside card */
+.link-title {
+  font-family: 'Changa One', sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  letter-spacing: 0.10em;
+  text-transform: none;
+  color: #fbfcf8;
+}
+
+.link-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(251,252,248,0.88);
+  line-height: 1.4;
+}
+
+/* Plain text links area (keeps consistent width and spacing) */
+.plain-links {
+  max-width: 900px;
+  margin: 1.25rem auto 2.5rem;
+  padding: 0 12px;
+  color: #60684f;
+}
+
+.plain-links ul { list-style: disc; padding-left: 1.2rem; }
+.plain-links a { color: #464d3a; text-decoration: none; }
+.plain-links a:hover, .plain-links a:focus { text-decoration: underline; }
+
+/* Accessibility: visible focus for keyboard users */
+.link-card:focus-visible {
+  outline: 3px solid rgba(106,111,79,0.18);
+  outline-offset: 6px;
+}
+
+/* Small screens: remove rotation and stack nicely */
+@media (max-width: 700px) {
+  .link-card { transform: none !important; }
+  .link-grid { gap: 12px; }
+}
+
+/* Move Links page content down and keep the offset from shrinking on small screens */
+.center-wrapper.nav-card-section {
+  /* minimum 220px on small screens, grows with viewport height, max 360px on very tall displays */
+  padding-top: clamp(220px, 16vh, 360px);
+}
+
+/* Reduce the offset on medium screens */
+@media (max-width: 900px) {
+  .center-wrapper.nav-card-section {
+    padding-top: 80px;
+  }
+}
+
+/* Small screens: smaller but still visible offset */
+@media (max-width: 600px) {
+  .center-wrapper.nav-card-section {
+    padding-top: 80px;
+  }
+}
+
+/* Stronger rule to ensure the title uses the size you want */
+.snap-section .center-wrapper.nav-card-section .links-header h1 {
+  margin: 0 0 6px;
+  font-family: 'Changa One', sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 6vw, 5rem) !important; /* enforced */
+  line-height: 1.02;
+  color: #464d3a;
+}

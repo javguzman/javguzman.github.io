@@ -1,0 +1,690 @@
+/* --- Reset & Base --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f3e7ce;
+  color: #464d3a;
+}
+
+/* Subtle paper background texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('/images/paperbackground.jpg') repeat;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* --- Typography --- */
+h1, h2, h3 {
+  font-family: 'Changa One', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* --- Logo --- */
+.logo {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  font-family: 'Changa One', sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #464d3a;
+  text-decoration: none;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+/* --- Hamburger --- */
+.hamburger {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 36px;
+  height: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: #464d3a;
+  border-radius: 2px;
+  transition: transform 0.22s ease, opacity 0.22s ease;
+}
+
+/* Animate to “X” */
+.hamburger.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* --- Dropdown Menu --- */
+.dropdown-menu {
+  position: fixed;
+  top: 64px;
+  right: 24px;
+  width: 220px;
+  background-color: #464d3ae1;
+  background-image: url('/images/paperbackground.jpg');
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+  color: #f3e9d2;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transform-origin: top right;
+  transform: scaleY(0);
+  opacity: 0;
+  transition: transform 0.18s cubic-bezier(.2, .8, .2, 1), opacity 0.12s;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.dropdown-menu.open {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
+.dropdown-menu li a:hover {
+  background: rgba(75, 83, 59, 0.08);
+}
+
+
+/* Header layout */
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  padding: 20px 10%; /* Adds top and bottom breathing room */
+  min-height: 80vh; /* Keeps it visually centered */
+  box-sizing: border-box;
+}
+
+/* Left column (text) */
+.header-content {
+  flex: 1;
+  max-width: 500px;
+  font-family: "Montserrat", sans-serif;
+  color: #464d3a;
+  text-align: left;
+}
+
+/* Individual elements */
+.header-content .date-range {
+  font-size: 1rem;
+  color: #464d3a;
+  margin-bottom: 10px;
+}
+
+.header-content .project-title {
+  font-family: "Changa One", sans-serif;
+  font-size: 2.8rem;
+  margin: 10px 0 20px;
+  color: #464d3a;
+}
+
+.header-content .project-desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #464d3a;
+}
+
+/* Right column (image) */
+.header-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-image img.responsive {
+  width: 100%;
+  max-width: 1080px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  #header {
+    flex-direction: column;
+    text-align: center;
+    padding: 100px 5%;
+    gap: 50px;
+  }
+
+  .header-content {
+    text-align: center;
+    max-width: 600px;
+  }
+}
+
+/*Section 1 Styles*/
+/* Wrapper */
+.wrapper {
+  max-width: 1200px;
+  margin: 100px auto; /* space from top and bottom */
+  padding: 0 20px;
+}
+
+/* Spotlight section: two columns */
+.spotlight {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 200px;
+  flex-wrap: wrap; /* responsive for small screens */
+}
+
+/* Left column */
+.content-left {
+  flex: 1 1 400px; /* min width 400px, grow if space allows */
+  text-align: left;
+  line-height: 1.6;
+}
+
+/* Right column */
+.content-right {
+  flex: 1 1 300px; /* min width 300px */
+}
+
+/* Grid container for team/tools/role - updated to flex */
+.grid-container {
+  display: flex;
+  justify-content: space-between; /* spread columns evenly */
+  gap: 40px;                      /* space between columns */
+  flex-wrap: nowrap;               /* do NOT wrap */
+}
+
+/* Each column */
+.grid-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;          /* each column takes equal width */
+  min-width: 150px; /* prevents shrinking too small */
+}
+
+/* Header row styling */
+.grid-column .gridtitle1 {
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #464d3a;
+  padding-bottom: 6px;
+}
+
+/* Individual items */
+.grid-column span:not(.gridtitle1) {
+  padding: 4px 0;
+}
+
+/* Responsive fallback (smallest screens) */
+@media (max-width: 600px) {
+  .grid-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .grid-column {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+/* --- End of Section 1 --- */
+.bottom-space {
+  height: 75px; /* blank space at bottom */
+}
+
+/* Add near the other section styles or at the end of the file */
+
+/* Vertical table-of-contents styling */
+.toc-vertical {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.toc-vertical li {
+  counter-increment: toc;
+  display: flex;
+  align-items: center;
+}
+
+.toc-vertical li::before {
+  content: counter(toc) ".";
+  counter-reset: none;
+  margin-right: 10px;
+  font-weight: 700;
+  color: #464d3a; /* matches your site color */
+  min-width: 1.6ch;
+  text-align: right;
+}
+
+/* Link styles */
+.toc-vertical a {
+  color: #464d3a;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.12s ease;
+}
+
+.toc-vertical a:hover,
+.toc-vertical a:focus {
+  color: #6a6f4f; /* subtle hover shade; adjust as desired */
+}
+
+/* Ensure the right column doesn't overflow awkwardly on small screens */
+@media (max-width: 900px) {
+  .toc-vertical {
+    gap: 10px;
+    align-items: center;
+  }
+
+  /* stack the two columns on small screens (matches existing header behavior) */
+  #content-section .spotlight {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #content-section .content-left,
+  #content-section .content-right {
+    width: 100%;
+  }
+
+  .toc-vertical li::before {
+    margin-right: 8px;
+  }
+}
+
+/* Make the Content title match the project-title size */
+#content-title {
+  font-size: 2.8rem; /* match .project-title */
+  margin: 8px 0 20px;
+  color: #464d3a;
+  line-height: 1.02;
+}
+
+/* Make the TOC items the same (large) size as the Content title */
+.toc-vertical {
+  gap: 14px; /* slightly more breathing room for larger text */
+}
+
+.toc-vertical a {
+  font-size: 1.4rem; /* same as #content-title */
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  color: #464d3a;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.12s ease;
+}
+
+/* Keep the numeric prefix visually smaller and aligned */
+.toc-vertical li::before {
+  content: counter(toc) ".";
+  margin-right: 12px;
+  min-width: 2.2ch;
+  text-align: right;
+  font-weight: 700;
+  color: #464d3a;
+  font-size: 1.05rem; /* smaller than the item label for contrast */
+}
+
+/* Vertically center the TOC in the right column on larger screens */
+#content-section .content-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive: scale down on small screens so it doesn't overflow */
+@media (max-width: 900px) {
+  #content-title,
+  .toc-vertical a {
+    font-size: 1.6rem; /* reasonable mobile size */
+  }
+
+  .toc-vertical li::before {
+    font-size: 0.95rem;
+    margin-right: 8px;
+  }
+}
+
+/* Center "Content" vertically in its column and reduce stacked spacing */
+
+/* Make columns vertically aligned for this specific section */
+#content-section .spotlight {
+  align-items: center; /* override the global .spotlight align-items: flex-start; */
+}
+
+/* Ensure the left column centers its content vertically */
+#content-section .content-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical centering */
+}
+
+/* On smaller screens: stack but reduce the large vertical gap so TOC sits closer */
+@media (max-width: 900px) {
+  /* Use a much smaller vertical gap when stacked */
+  #content-section .spotlight {
+    flex-direction: column;
+    text-align: center;
+    gap: 28px; /* previously 200px from .spotlight — this reduces the huge empty space */
+  }
+
+  /* Reduce title bottom margin so the TOC moves closer */
+  #content-title {
+    margin: 6px 0 6px;
+  }
+
+  /* Keep TOC items from overflowing and better align the list */
+  .toc-vertical {
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .toc-vertical a {
+    font-size: 1.6rem; /* already in your file; ensure it's applied */
+  }
+}
+
+/* --------------------
+   TOC & Section layout fixes (left-aligned header + indented subtitle + centered-left paragraph)
+   -------------------- */
+
+/* Ensure the content-section keeps two-column layout on large screens and left-aligns header */
+#content-section .spotlight {
+  align-items: flex-start; /* titles align to top/left */
+  gap: 120px; /* reduce overall gap if needed (matches wrapper spacing) */
+}
+
+/* Make the right column TOC align-left inside its column */
+#content-section .content-right {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center; /* keeps the TOC visually on the right column center if you want */
+}
+.toc-vertical {
+  text-align: left;
+  align-items: flex-start;
+}
+
+/* Left-aligned header for reusable section blocks */
+.section-header.left {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 18px;
+  width: 100%;
+  margin-bottom: 6px;
+  /* align with wrapper padding */
+  padding-left: 0;
+}
+
+/* Number style stays compact */
+.section-number {
+  display: inline-block;
+  text-decoration: none;
+  color: #464d3a;
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1;
+  padding: 2px 6px 0 0;
+  margin-right: 6px;
+}
+
+/* Main title: left aligned, underlined from markup */
+.section-main-title {
+  font-size: 2.2rem;
+  margin: 0;
+  color: #464d3a;
+  line-height: 1.05;
+}
+
+/* Subtitle: larger, indented from the number/title and left-justified */
+.section-subtitle.indented {
+  margin: 8px 0 10px;
+  font-weight: 700;
+  text-align: left;
+  
+  /* indent visually to sit under the title (tweak the px to taste) */
+  margin-left: 50px;
+  color: #464d3a;
+  padding-left: 50px;
+}
+
+/* Lead paragraph: center the paragraph block on the page, but keep its text left-aligned */
+.section-lead.centered-left {
+  max-width: 900px; /* controls measure for readability */
+  margin: 0 auto 18px; /* centers the block horizontally */
+  text-align: left; /* but paragraph text is left-justified */
+  line-height: 1.6;
+  color: #464d3a;
+  padding: 0 12px; /* small breathing room on narrow screens */
+  font-size: 1.05rem;
+  z-index: 999;
+}
+
+
+
+/* Make sure the image area remains centered */
+.section-image {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+/* Make section images responsive */
+.section-image img.responsive,
+.section-image img {
+  display: block;
+  width: 100%;        /* fill the available column width */
+  max-width: 900px;   /* prevent it from growing too large on wide screens — tweak as needed */
+  height: auto;       /* preserve aspect ratio */
+  margin: 0 auto;     /* keep it centered inside .section-image (the container is flex-centered) */
+  border-radius: 6px; /* optional, matches other images */
+  object-fit: contain;/* ensure the image stays fully visible */
+
+}
+
+/* responsive tweaks */
+@media (max-width: 900px) {
+  /* Stack columns for the content-section as before, but reduce vertical gap */
+  #content-section .spotlight {
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+  }
+
+  /* For stacked layout, remove large left indents and keep subtitle left-aligned under title */
+  .section-subtitle.indented {
+    margin-left: 0;
+    text-align: left;
+    font-size: 1.05rem;
+    
+  }
+
+  /* Scale the title and number down for mobile */
+  .section-number { font-size: 1.6rem; }
+  .section-main-title { font-size: 1.6rem; }
+
+  /* Paragraph sizing on mobile */
+  .section-lead.centered-left {
+    max-width: 95%;
+    padding: 0;
+    font-size: 0.98rem;
+  }
+
+  /* Make TOC compact on small screens */
+  .toc-vertical a {
+    font-size: 1.05rem;
+  }
+}
+
+/* Tighten Section spacing + subtitle styling for reusable sections */
+
+/* Reduce vertical spacing for reusable section blocks (keeps other wrappers intact) */
+.section-block {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Make the section-block contents flow vertically (not in a horizontal flex row) */
+.section-block .spotlight {
+  display: block;            /* ensure vertical stacking inside the section */
+  text-align: left;         /* prevent inherited centering */
+  padding-top: 5px;
+  padding-bottom: 5px;
+  gap: 0;
+  margin-top: 75px;
+}
+
+/* Header row styling */
+.section-header.left {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+/* Keep the number compact */
+.section-number {
+  font-size: 2rem;
+  line-height: 1;
+  padding: 0;
+  margin-right: 6px;
+}
+
+/* Main title (keeps the underline from markup) */
+.section-main-title {
+  font-size: 2.2rem;
+  margin: 0;
+  line-height: 1.02;
+}
+
+/* Subtitle: same visual size as main title, NOT underlined, LEFT-justified and indented
+   (use margin-left to nudge it under the title; adjust 48px if you want closer/further) */
+.section-subtitle.indented {
+  display: block;
+  font-size: 1.5rem;       /* match main title */
+  font-weight: 400;
+  text-decoration: none;   /* ensure no underline */
+  text-align: left;        /* explicitly left-justify */
+  margin: 50px 0 35px 50px;  /* top/right/bottom/left -> left is the indent */
+  line-height: 1.02;
+  color: #464d3a;
+}
+
+/* Center the paragraph block horizontally but keep the text left-aligned.
+   Reduce bottom spacing so sections sit closer together. */
+.section-lead.centered-left {
+  max-width: 900px;
+  margin: 0 auto 10px;    /* shorter bottom margin */
+  text-align: left;
+  line-height: 1.6;
+  padding: 0 12px;
+}
+
+/* Slightly reduce spacing above image */
+.section-image { 
+  margin-top: 50px; 
+  
+}
+
+/* Mobile adjustments: remove the left indent and scale fonts down */
+@media (max-width: 900px) {
+  .section-subtitle.indented {
+    margin-left: 0;
+    font-size: 1.25rem;
+  }
+
+  .section-main-title {
+    font-size: 1.6rem;
+  }
+
+  .section-number { font-size: 1.6rem; }
+  .section-lead.centered-left { max-width: 95%; margin-bottom: 10px; font-size: 0.98rem; }
+  .section-block { margin-top: 8px; margin-bottom: 8px; }
+}
+
+/* Align section lists with the centered-left paragraph */
+.section-list.centered-left {
+  max-width: 900px;          /* same measure as .section-lead.centered-left */
+  margin: 0 auto 16px;       /* center block and add bottom spacing */
+  padding-left: 12px;        /* match paragraph left padding: 0 12px */
+  padding-right: 12px;       /* keep consistent padding on both sides */
+  list-style-position: outside; /* bullets outside content block; adjust if needed */
+  color: #464d3a;
+  line-height: 1.6;
+}
+
+/* Give a little breathing room between list items */
+.section-list.centered-left li {
+  margin-bottom: 8px;
+}
+
+/* Mobile fallback: match your responsive rules */
+@media (max-width: 900px) {
+  .section-list.centered-left {
+    max-width: 95%;
+    padding-left: 12px;
+  }
+}
+
+.responsive-video {
+  display: block;
+  width: 100%;        /* fill the available column width */
+  max-width: 900px;   /* prevent it from growing too large on wide screens — tweak as needed */
+  height: auto;       /* preserve aspect ratio */
+  margin: 0 auto;     /* keep it centered inside .section-image (the container is flex-centered) */
+  border-radius: 6px; /* optional, matches other images */
+  object-fit: contain;/* ensure the image stays fully visible */
+}

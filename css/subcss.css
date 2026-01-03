@@ -1,0 +1,331 @@
+/* ================= GLOBAL RESET ================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  }
+
+body, html {
+font-family: 'Montserrat', sans-serif;
+background-color: #f3e7ce;
+color: #464d3a;
+}
+
+/* ================= BACKGROUND TEXTURE ================= */
+body::before {
+content: "";
+position: fixed;
+inset: 0;
+pointer-events: none;
+background: url('/images/paperbackground.jpg') repeat;
+opacity: 0.2;
+z-index: 5;
+}
+
+/* ================= TYPOGRAPHY ================= */
+h1, h2 {
+font-family: 'Changa One', sans-serif;
+font-weight: 400;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+font-size: clamp(2.5rem, 6vw, 7rem);
+}
+
+h3 {
+font-family: 'Changa One', sans-serif;
+font-weight: 400;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+font-size: 2rem;
+}
+
+p, li, span {
+font-size: clamp(1rem, 2.5vw, 1.25rem);
+line-height: 1.6;
+}
+
+/* ================= LOGO ================= */
+.logo {
+font-family: 'Changa One', sans-serif;
+color: #464d3a;
+position: fixed;
+top: 30px;
+left: 30px;
+font-weight: bold;
+font-size: 1.5rem;
+text-decoration: none;
+z-index: 10000;
+}
+
+/* ================= FLEX CONTAINERS ================= */
+.container, .center-wrapper {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+gap: 1rem;
+max-width: 1600px;
+margin: auto;
+padding: 1rem;
+}
+
+.info {
+flex: 1;
+min-width: 300px;
+text-align: center;
+opacity: 1;
+transition: opacity 0.5s ease;
+}
+
+.info h1 {
+margin-bottom: 10px;
+}
+
+.info p {
+margin-bottom: 2rem;
+}
+
+/* ================= CARDS ================= */
+.cards {
+position: relative;
+width: 600px;
+height: 200px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.card {
+position: absolute;
+width: 200px;
+height: 200px;
+background-color: #d2e4be;
+border-radius: 4px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+transition: transform 0.3s;
+overflow: hidden;
+}
+
+.card::before {
+content: "";
+position: absolute;
+inset: 0;
+pointer-events: none;
+background: url('/images/cardtexture.png') repeat;
+opacity: 0.3;
+border-radius: 4px;
+}
+
+.card:hover {
+transform: scale(1.04);
+}
+
+/* ================= FIRST SECTION ================= */
+.section1 .snap-section {
+height: auto;
+min-height: 60vh;
+padding: 60px 0;
+display: flex;
+align-items: flex-start;
+justify-content: center;
+position: relative;
+}
+
+/* ================= BOOKMARK ================= */
+.bookmark {
+position: fixed;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 60px;
+height: 30px;
+background: #464d3a;
+border-top-left-radius: 8px;
+border-top-right-radius: 8px;
+cursor: pointer;
+z-index: 1000;
+opacity: 1;
+visibility: visible;
+pointer-events: auto;
+transition: height 0.3s ease, opacity 0.3s ease;
+}
+
+.bookmark.stretch, .bookmark:hover {
+height: 4rem;
+}
+
+/* ================= HAMBURGER MENU ================= */
+.hamburger {
+position: fixed;
+top: 30px;
+right: 30px;
+width: 36px;
+height: 28px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: 6px;
+background: transparent;
+border: none;
+cursor: pointer;
+z-index: 10001;
+}
+
+.hamburger span {
+display: block;
+height: 3px;
+background: #464d3a;
+border-radius: 2px;
+transition: transform 0.22s ease, opacity 0.22s ease;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+.dropdown-menu {
+position: fixed;
+top: 64px;
+right: 24px;
+width: 220px;
+background-color: #464d3ae1;
+background-image: url('/images/paperbackground.jpg');
+background-repeat: repeat;
+background-blend-mode: multiply;
+color: #f3e9d2;
+transform-origin: top right;
+transform: scaleY(0);
+transition: transform 0.18s cubic-bezier(.2,.8,.2,1), opacity 0.12s;
+z-index: 10000;
+border-radius: 8px;
+box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+overflow: hidden;
+opacity: 0;
+}
+
+.dropdown-menu.open {
+transform: scaleY(1);
+opacity: 1;
+}
+
+.dropdown-menu ul {
+list-style: none;
+padding: 0.5rem 0;
+display: flex;
+flex-direction: column;
+}
+
+.dropdown-menu a {
+display: block;
+padding: 10px 16px;
+text-decoration: none;
+color: inherit;
+font-weight: 600;
+font-size: 0.98rem;
+}
+
+.dropdown-menu a:hover {
+background: rgba(75,83,59,0.06);
+}
+
+/* ================= CORNER ART ================= */
+.corner-art {
+position: fixed;
+right: 24px;
+bottom: 24px;
+width: 120px;
+pointer-events: none;
+z-index: 1000;
+}
+
+/* ================= SECTION 2: ABOUT ================= */
+.about-section {
+padding: 80px 10%;
+display: flex;
+justify-content: center;
+align-items: flex-start;
+background: rgba(0,0,0,0.05);
+}
+
+.about-container {
+display: flex;
+flex-wrap: nowrap; /* prevent wrapping */
+gap: 40px;
+max-width: 1200px;
+width: 100%;
+}
+
+.about-left,
+.about-right {
+flex: 1 1 45%;
+}
+
+/* Left Column */
+.about-left ul {
+list-style: disc;
+padding-left: 20px;
+line-height: 1.8;
+}
+
+/* Right Column: Flex layout for subsections */
+.about-right {
+display: flex;
+flex-direction: column; /* stack subsections vertically */
+gap: 2rem;
+flex: 1 1 45%;
+max-width: 600px;
+
+align-items: center;    /* center children horizontally */
+text-align: center;     /* center text inside children */
+}
+
+/* Each subsection */
+.about-subsection {
+width: 100%;
+}
+
+/* Section titles (Education / Experience / Design Skills) */
+.section-title {
+font-weight: bold;
+font-size: 1.25rem;
+margin-bottom: 1rem;
+}
+
+/* Entry titles (school / job / skill) */
+.entry-title {
+font-weight: 500;
+font-size: 1rem;
+margin-bottom: 0.25rem;
+}
+
+/* Entry details paragraph */
+.entry p {
+font-weight: normal;
+margin-bottom: 0.5rem;
+}
+
+/* ================= RESPONSIVE ADJUSTMENTS ================= */
+@media (max-width: 900px) {
+.about-container {
+flex-direction: column;
+}
+.about-left, .about-right {
+flex: 1 1 100%;
+}
+.container, .center-wrapper {
+flex-direction: column;
+text-align: center;
+align-items: center;
+}
+.info {
+margin-top: 40px;
+}
+}
+
+.about-left li {
+font-weight: 600;
+font-size: 1rem;
+margin-bottom: 0.25rem;
+}
+
