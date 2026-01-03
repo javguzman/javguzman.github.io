@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Homepage</title>
+  <link rel="stylesheet" href="main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Changa+One:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+
+<!-- Preload images -->
+<link rel="preload" as="image" href="images/paperbackground.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="images/cardtexture.png" fetchpriority="high">
+<link rel="preload" as="image" href="images/meow.png" fetchpriority="high">
+<link rel="preload" as="image" href="images/alignimals.png" fetchpriority="high">
+<link rel="preload" as="image" href="images/lovesmiles.png" fetchpriority="high">
+</head>
+<body>
+  <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="dropdown-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav id="dropdown-menu" class="dropdown-menu" aria-hidden="true">
+    <ul>
+      <li><a href="About.html">About</a></li>
+      <li><a href="Projects.html">Projects</a></li>
+      <li><a href="mailto:javguzman20@gmail.com?subject=Hi%20Javier">Contact</a></li>
+      <li><a href="Links.html">Links</a></li>
+    </ul>
+  </nav>
+    <a href="index.html" class="logo">JG</a>
+  
+    <div class="snap-container">
+      <!-- Section 1: Cards and Info -->
+      <section class="snap-section">
+        <div class="center-wrapper">
+          <div class="container">
+            <!-- Left side: Cards area -->
+            <div class="cards">
+              <div class="card">
+                <img src="images/links_icon.png" alt="" />
+              </div>
+              <div class="card">
+                <img src="images/about_icon.png" alt="" />
+              </div>
+              <div class="card">
+                <img src="images/about_icon.png" alt="" />
+              </div>
+              <div class="card">
+                <img src="images/projects_icon.png" alt="" />
+              </div>
+              <div class="card">
+                <img src="images/contact_icon.png" alt="" />
+              </div>
+            </div>
+  
+            <!-- Right side: Name and description -->
+            <div class="info">
+              <h1>Javier Guzman</h1>
+              <p>
+                A UX designer and researcher who loves transforming complex challenges into thoughtful, human-centered experiences. 
+                My goal is to craft designs that are playful, intuitive, and challenge traditional norms.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="bookmark" title="Scroll down"></div>
+        <img src="images/meow.png" alt="Corner Art" class="corner-art"> <!-- Corner Art Image -->
+      </section>
+        <!-- Section 1 End -->
+
+      <!-- Section 2 -->
+      <section class="snap-section">
+        
+  <div class="center-wrapper nav-card-section">
+    <div class="nav-cards-grid">
+      <!-- Top row: 5 small images -->
+      <div class="navigation-cards">
+        <a href="About.html" class="nav-card"><img src="images/about_icon.png" alt="icon 1"></a>
+        <a href="Projects.html" class="nav-card"><img src="images/projects_icon.png" alt="icon 2"></a>
+        <a href="Links.html" class="nav-card"><img src="images/links_icon.png" alt="icon 3"></a>
+        <a class="nav-card" href="mailto:javguzman20@gmail.com?subject=Hi%20Javier" aria-label="Email Javier">
+          <img src="images/contact_icon.png" alt="Contact icon">
+        </a>
+      </div>
+      <!-- example work-->
+     <div class="project-showcases">
+  <a href="./Alignimals.html" class="project-showcase">
+    <img src="images/alignimals.png" alt="Project 1">
+    <div class="project-info">
+      <h3>Alignimals</h3>
+      <p>Prototype for a mobile game combining visual design, 
+        interaction flow, and navigation systems, guided by user research through card sorting and iterative usability testing.</p>
+    </div>
+  </a>
+  <a href="./lovesmiles.html" class="project-showcase">
+    <img src="images/lovesmiles.png" alt="Project 2">
+    <div class="project-info">
+      <h3>Love Smiles</h3>
+      <p>Website redesign and expansion for Love Smiles, an Illinois nonprofit supporting pediatric cancer awareness and affected families, 
+        including the launch of an integrated online store..</p>
+    </div>
+  </a>
+</div>
+<!-- example work end-->
+    </div> 
+  </div>
+  <img src="images/meow.png" alt="Corner Art" class="corner-art"> <!-- Corner Art Image -->
+</section>
+      <!-- Section 2 End -->
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
+

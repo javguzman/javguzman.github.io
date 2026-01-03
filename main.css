@@ -1,0 +1,659 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: Montserrat;
+    background-color: #f3e7ce;
+    color: #464d3a !important;
+  }
+  
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    background: url('images/paperbackground.jpg') repeat;
+    opacity: 0.20;
+    z-index: 5; /* background texture */
+  }
+  
+  h1, h2 {
+    font-family: 'Changa One';
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: clamp(2.5rem, 6vw, 7rem) !important;
+  }
+  
+  h3 {
+    font-family: 'Changa One';
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 2rem;
+  }
+  
+  p, li, span {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+  }
+
+
+  .logo {
+    font-family: 'Changa One';
+    color: #464d3a !important;
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 10000;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1600px;
+    margin: auto;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .cards {
+    position: relative;
+    width: 600px;
+    height: 200px;
+    margin-right: 0;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    transition: all 0.5s ease;
+    
+  }
+  @media (max-width: 999px) {
+  .cards {
+    padding-bottom: 2rem;
+  }
+}
+  .card {
+    position: absolute;
+    z-index: 10; /* higher than body::before */
+    width: 200px;
+    height: 200px;
+    background-color: #d2e4be;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    transition: transform 0.3s;
+    overflow: hidden; /* Ensures card::before { stays inside card */
+    
+  }
+
+  .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  opacity: .30; /* Adjust overlay strength */
+  background: url('images/cardtexture.png') repeat; /* Use your new overlay image */
+  border-radius: 4px;
+  
+}
+  
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+  }
+  
+  /* card transforms */
+
+  .card:nth-child(1) {
+    transform: translateX(-60px) translateY(-10px) rotate(-30deg);
+    z-index: 6;
+  }
+  
+  .card:nth-child(2) {
+    transform: translateX(-30px) translateY(8px) rotate(-10deg);
+    z-index: 7;
+  }
+  
+  .card:nth-child(3) {
+    transform: translateX(0px) translateY(-6px) rotate(15deg);
+    z-index: 8;
+  }
+  
+  .card:nth-child(4) {
+    transform: translateX(25px) translateY(5px) rotate(30deg);
+    z-index: 7;
+  }
+  
+  .card:nth-child(5) {
+    transform: translateX(50px) translateY(-4px) rotate(5deg);
+    z-index: 6;
+  }
+  
+
+
+.card:nth-child(1):hover {
+  transform: translateX(-60px) translateY(-10px) rotate(-30deg) scale(1.04) rotate(-5deg);
+}
+.card:nth-child(2):hover {
+  transform: translateX(-30px) translateY(8px) rotate(-10deg) scale(1.04) rotate(-5deg);
+}
+.card:nth-child(3):hover {
+  transform: translateX(0px) translateY(-6px) rotate(15deg) scale(1.04) rotate(-5deg);
+}
+.card:nth-child(4):hover {
+  transform: translateX(25px) translateY(5px) rotate(30deg) scale(1.04) rotate(-5deg);
+}
+.card:nth-child(5):hover {
+  transform: translateX(50px) translateY(-4px) rotate(5deg) scale(1.04) rotate(-5deg);
+}
+
+/* card transforms end */
+
+  .info {
+    flex: 1;
+    margin: 0;
+    text-align: left;
+    min-width: 300px;
+    transition: opacity 0.5s ease;
+    opacity: 1;
+  }
+  
+  .info h1 {
+    font-size: clamp(4.5rem, 6vw, 7rem) !important;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .info p {
+  font-size: clamp(0.8rem, 2.5vw, 1.25rem);
+  line-height: 1.4;
+  max-width: 90vh;
+  margin-bottom: 2rem; /* Add more space below */
+  text-align: center;
+}
+
+@media (max-height: 700px) {
+  .info p {
+    font-size: clamp(0.7rem, 2vw, 1rem); /* Smaller font for short screens */
+    margin-bottom: 3rem; /* Extra space below */
+    
+  }
+}
+  
+  @media (max-width: 700px) {
+    .info {
+      min-width: auto;
+      max-width: 90vw;
+    }
+  }
+  
+  @media (max-width: 999px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .info {
+      margin-left: 0;
+      margin-top: 40px;
+      text-align: center;
+    }
+  }
+  
+  .snap-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+.snap-section {
+    scroll-snap-align: start;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    min-height: 100vh;
+    max-width: 1600px;
+    margin: auto;
+    padding: 1rem;
+    gap: 1rem;
+}
+  
+  .bookmark {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 30px;
+    background: #464d3a;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: 0 -3px 6px rgba(0,0,0,0.15);
+    cursor: pointer;
+    z-index: 1000;
+  
+    transition: height 0.3s ease, opacity 0.3s ease;
+    
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  
+  .bookmark.stretch,
+  .bookmark:hover {
+    height: 4rem;
+  }
+  
+  .bookmark::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: #9ba591;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    border-top-left-radius: 8px;
+  }
+
+
+  /* Hide the scrollbar for WebKit-based browsers (Chrome, Edge, Safari) */
+.snap-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide the scrollbar for Firefox */
+.snap-container {
+    scrollbar-width: none; /* Hides the scrollbar */
+}
+
+/* Ensure scrolling still works */
+.snap-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+    scroll-behavior: smooth; /* Adds smooth scrolling */
+}
+
+
+
+/* .snap-section:nth-of-type(1),
+.snap-section:nth-of-type(2) {
+    position: relative; 
+    z-index: 0; 
+    padding: 20px; 
+    outline: 2px dashed #4b533bb4;
+    outline-offset: -10px; 
+    border-radius: 15px; 
+    box-sizing: border-box; 
+} */
+
+/* Projects Section Layout aka snap section2 */
+.nav-card-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.nav-cards-grid {
+  width: 100%;
+  max-width: 1500px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.nav-card img {
+  width: clamp(3.5rem, 10vw, 10rem);
+  height: clamp(3.5rem, 10vw, 10rem);
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: transform 0.2s;
+  
+}
+
+.navigation-cards {
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.5rem, 4vw, 9rem); /* Responsive gap */
+  padding-top: 3rem;
+  width: 100%;
+  overflow-x: hidden; /* Prevent accidental horizontal scroll */
+  overflow-y: hidden; /* Prevent vertical scroll */
+   min-height: clamp(2rem, 15vw, 14rem); /* Responsive min-height */
+  
+}
+
+
+
+/*example work section 2*/
+.project-showcases {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 3rem;
+  margin-top: clamp(0.75rem, 6vh, 3.5rem); /* moved up (was clamp(2rem, 10vh, 8rem)) */
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* Polaroid-style project cards (landscape rectangles, raised above paper texture) */
+.project-showcase {
+  display: flex;
+  flex-direction: column;      /* image on top, caption below */
+  align-items: center;
+  justify-content: flex-start;
+  background: #ffffff;         /* polaroid white */
+  border-radius: 8px;          /* slightly rounded corners */
+  padding: 14px 14px 26px;     /* extra bottom padding like a polaroid frame */
+  text-decoration: none;
+  color: inherit;
+  width: clamp(370px, 36vw, 520px); /* landscape / wider than tall */
+  min-width: 370px;
+  max-width: 520px;
+  flex: 0 1 auto;
+  gap: 12px;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.13);
+  border: 1px solid rgba(0,0,0,0.06);
+  z-index: 60;                 /* make sure they're above body::before texture */
+  transform-origin: center;
+}
+
+/* Image inside polaroid: keep aspect ratio, fill width */
+.project-showcase img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.00);
+  background: #eee;            /* fallback while image loads */
+}
+
+/* Caption area: centered, small spacing */
+.project-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  width: 100%;
+  z-index: 61;
+}
+
+.project-info h3 {
+  margin: 0;
+  font-size: clamp(1rem, 2.2vw, 1.4rem);
+  color: #464d3a;
+}
+
+.project-info p {
+  margin: 0;
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
+  color: #60684f;
+}
+
+/* subtle hover lift while preserving polaroid look */
+.project-showcase:hover {
+  transform: translateY(-8px) rotate(-0.6deg) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+}
+
+/* keep small-screen fallback */
+@media (max-width: 900px) {
+  .project-showcase { width: 100%; max-width: 420px; }
+  .project-showcase img { height: auto; }
+}
+
+
+.corner-art {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  width: 120px; /* Adjust size as needed */
+  height: auto;
+  pointer-events: none; /* Prevent accidental clicks */
+  z-index: 50;
+}
+.snap-section {
+  position: relative; /* Ensure absolute positioning works inside */
+}
+
+/* Hamburger (top-right) */
+.hamburger {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 36px;
+  height: 28px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10001;
+}
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: #464d3a; /* same color as text */
+  border-radius: 2px;
+  transition: transform 0.22s ease, opacity 0.22s ease;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+/* small dropdown menu (drops down, rounded corners) */
+.dropdown-menu {
+  position: fixed;
+  top: 64px;
+  right: 24px;
+  width: 220px;
+
+  /* textured background: paper image + tint color blended */
+  background-color: #464d3ae1; /* menu tint (same as text color previously used) */
+  background-image: url('images/paperbackground.jpg');
+  background-repeat: repeat;
+  background-size: auto;
+  background-blend-mode: multiply; /* blends texture with the tint */
+  color: #f3e9d2;
+
+  transform-origin: top right;
+  transform: scaleY(0);
+  transition: transform 0.18s cubic-bezier(.2,.8,.2,1), opacity 0.12s;
+  z-index: 10000;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  overflow: hidden;
+  opacity: 0;
+}
+.dropdown-menu.open {
+  transform: scaleY(1);
+  opacity: 1;
+}
+.dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+.dropdown-menu li {
+  padding: 0;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+.dropdown-menu a:hover {
+  background: rgba(75,83,59,0.06);
+}
+
+/* nav-cards: make them visually the same as .card (but keep small size) */
+.nav-card {
+  display: inline-block;
+  position: relative;
+  width: clamp(3.5rem, 10vw, 8rem);
+  height: clamp(3.5rem, 10vw, 8rem);
+  background-color: #d2e4be;           /* same base color as .card */
+  border-radius: 4px;                  /* match section-1 cards */
+  box-shadow: 0 4px 10px rgba(139, 139, 139, 0.5);
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  z-index: 20;                          /* ensure it's above the paper texture */
+ 
+  
+}
+
+/* overlay contained to each nav-card (same as .card::before) */
+.nav-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: url('images/cardtexture.png') repeat;
+  opacity: 0.30;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.nav-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* keeps image proportions */
+  padding: 0.5rem;     /* optional breathing room */
+}
+
+
+/* keep hover lift */
+.nav-card:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+.nav-card:hover::before {
+  /* optional: slightly increase overlay visibility on hover */
+  opacity: 0.34;
+}
+
+@media (max-width: 360px) {
+  /* hide only the small navigation cards, keep project showcases */
+  .navigation-cards,
+  .nav-card {
+    display: none !important;
+  }
+}
+
+.snap-section:nth-of-type(2) {
+  overflow: auto;                 /* show vertical and horizontal scrollbars as needed */
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: auto;          /* keep inner scrolling immediate and independent */
+  position: relative;             /* create stacking context so z-index applies */
+  z-index: 60;                    /* sit above body::before (which is z-index:5) */
+}
+/* Optional: keep the scrollbar styling below (no z-index required for pseudo elements) */
+.snap-section:nth-of-type(2)::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+.snap-section:nth-of-type(2)::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.12);
+  border-radius: 8px;
+}
+.snap-section:nth-of-type(2)::-webkit-scrollbar-track {
+  background: transparent;
+}
+.snap-section:nth-of-type(2) {
+  scrollbar-width: auto;
+  scrollbar-color: #464d3a67 transparent;
+}
+
+/* lock corner-art to viewport bottom-right so it doesn't scroll with sections */
+.corner-art {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 120px; /* adjust as needed */
+  height: auto;
+  pointer-events: none;
+  z-index: 1000; /* above background texture and most content */
+  /* if you want it behind some UI (like dropdown), reduce this value accordingly */
+}
+
+/* Start responsive shrinking at 1920px and continue downwards */
+@media (min-width: 1921px) {
+  .project-showcase {
+    /* original large max for very wide screens */
+    width: clamp(370px, 36vw, 520px);
+    min-width: 370px;
+    max-width: 520px;
+  }
+}
+
+/* Scale down starting at 1920px */
+@media (max-width: 1920px) {
+  .project-showcase {
+    /* smaller max and lower fluid VW so card shrinks earlier */
+    width: clamp(320px, 30vw, 460px);
+    min-width: 320px;
+    max-width: 460px;
+  }
+}
+
+/* Tighter on common laptop sizes */
+@media (max-width: 1366px) {
+  .project-showcase {
+    width: clamp(300px, 34vw, 420px);
+    min-width: 300px;
+    max-width: 420px;
+  }
+}
+
+/* Mobile / narrow tablet */
+@media (max-width: 900px) {
+  .project-showcase {
+    width: 100%;
+    max-width: 420px; /* cap width even on medium phones */
+    min-width: auto;
+  }
+}
+
+

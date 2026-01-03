@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Homepage</title>
+  <link rel="stylesheet" href="/css/projects.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Changa+One:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+</head>
+
+ <!-- Top nav -->
+<body>
+  <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="dropdown-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav id="dropdown-menu" class="dropdown-menu" aria-hidden="true">
+    <ul>
+      <li><a href="About.html">About</a></li>
+      <li><a href="Projects.html">Projects</a></li>
+      <li><a href="mailto:javguzman20@gmail.com?subject=Hi%20Javier">Contact</a></li>
+      <li><a href="Links.html">Links</a></li>
+    </ul>
+  </nav>
+    <a href="index.html" class="logo">JG</a>
+
+ <!-- End of top nav -->
+
+<!-- Header Section -->
+<header id="header">
+  <div class="header-content">
+    <p class="date-range">2023-2024</p>
+    <h2 class="project-title">Alignimals</h2>
+    <p class="project-desc">
+     A casual animal-themed match-3 puzzle experience
+    </p>
+  </div>
+
+  <div class="header-image">
+    <img src="images/AlignimalsTitle.png" alt="AlignimalsImage" class="responsive">
+  </div>
+</header>
+
+<!-- end Header Section --> 
+
+<!-- Section 1 -->
+<section id="project-overview" class="wrapper">
+  <div class="spotlight">
+    
+    <!-- Left column: Description -->
+    <div class="content-left">
+      <p>
+        This project began after identifying a gap in mobile games, particularly the absence of classic zoo-style management experiences commonly 
+        found on PC. To address this, I conceptualized "Alignimals," a mobile game that combines match-3 puzzle mechanics with zoo management elements, combining a 
+        classic mobile game genre with an underexplored theme.
+    </div>
+
+    <!-- Right column: Team / Tools / Role -->
+    <div class="content-right">
+  <div class="grid-container">
+    <div class="grid-column">
+      <span class="gridtitle1">The Team</span>
+      <span>Javier Guzman</span>
+
+    </div>
+    <div class="grid-column">
+      <span class="gridtitle1">Tools Used</span>
+      <span>Figma</span>
+      <span>OptimalWorkshop</span>
+      <span>Adobe Photoshop</span>
+    </div>
+    <div class="grid-column">
+      <span class="gridtitle1">My Role</span>
+      <span>User Research</span>
+      <span>Concept Testing</span>
+      <span>UX Design</span>
+      <span>Visual Design</span>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+</section>
+
+<!-- Section 1 End -->
+
+<!-- NEW: Section 2 — Content + Table of Contents -->
+<section id="content-section" class="wrapper" aria-labelledby="content-title">
+  <div class="spotlight">
+    <!-- Left column: Title / description -->
+    <div class="content-left">
+      <h2 id="content-title">Content</h2>
+      
+    </div>
+
+    <!-- Right column: Vertical Table of Contents -->
+    <div class="content-right">
+      <nav aria-label="Table of contents">
+        <ol class="toc-vertical">
+          <li><h2><a href="#item1">01 — Gathering Information</a></h2></li>
+          <li><h2><a href="#item2">02 — Research and Framework</a></h2></li>
+          <li><h2><a href="#item3">03 — Wireframe Iteration and Prototype</a></h2></li>
+          <li><h2><a href="#item4">04 — Design System</a></h2></li>
+          <li><h2><a href="#item5">05 — Accessibility Evaluation</a></h2></li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</section>
+<!-- Section 2 End -->
+
+<!-- Initial  Section -->
+
+<section id="item1" class="wrapper section-block" aria-labelledby="item1-title">
+  <div class="spotlight">
+    <!-- Header row: Number + underlined main title (left aligned) -->
+    <div class="section-header left">
+      <a class="section-number" href="#content-section" aria-label="Back to content">01</a>
+      <h2 id="item1-title" class="section-main-title"><u>Gathering Information</u></h2>
+    </div>
+    
+    <!-- Smaller subtitle, indented from the main title, left-justified -->
+    <h3 class="section-subtitle indented">Player Insight </h3>
+
+    <!-- Lead paragraph: visually centered on page but text aligned left -->
+    <p class="section-lead centered-left">
+      Initial Interviews played a large role in the understanding of the project's goals and direction. 
+      These interviews provided the project with player habits, feature preferences and expectations, 
+      initial opinions on the project, and an understanding of what Alignimals would be competing with.
+      To start the project, 16 participants were gathered and screened, moving forward only with those 
+      who had played mobile games within the last month, and interviews were done to better understand 
+      the playing habits of mobile gamers. Some additional questions were also asked in order to gauge 
+      interest in the style of game the project was aiming to create as well as to understand what features 
+      players might expect and prefer in such a game. Participants were asked the following questions, some 
+      open ended and others multiple choice where appropriate: 
+      <br>
+      <br>
+      <ul class="section-list centered-left">
+        <li>What mobile games have you played recently? </li>
+        <li>Where and when do you usually play? </li>
+        <li>How long do you play in a single sitting? </li>
+        <li>Which most accurately describes how recently you played a mobile game? </li>
+        <li>What, if anything, do you like about mobile games? </li>
+        <li>What if anything, do you NOT like about mobile games? </li>
+        <li>Do you have a favorite mobile game? What do you like about it? What do you not like about it? </li>
+        <li>How do you feel about a game focused around collecting animals and building a zoo with them? Not Very Interested to Very Interested (Likert Scale) </li>
+        <li>Are you familiar with Tycoon Simulation type games? (e.g. Zoo Tycoon, Rollercoaster Tycoon)</li>
+        <li>In an animal based Tycoon game, how important are the following features to you (Very Important to Very Unimportant, Likert Scale) </li>
+    </ul>
+    </p>
+    
+    <h3 class="section-subtitle indented">Affinity Diagram</h3>
+    <div class="section-image">
+      <a href="images/alignimals/AffinityDiagram.png" target="_blank" rel="noopener noreferrer" aria-label="affinity diagram image">
+        <img src="images/alignimals/AffinityDiagram.png" alt="Project brief" class="responsive">
+      </a>
+    </div>
+
+    <h3 class="section-subtitle indented">Personas</h3>
+    <p class="section-lead centered-left">The initial interviews gave the project a good starting point into understanding the users that might interact without Alignimals. Three personas, representing three distinct types of users, were thus created, influenced by the affinity diagram in order to better cement and personify the different types of users, their use cases, issues, and desires. The three categories of users I ended up on were: casual players, dedicated collectors, and competitive players. </p>
+
+    <div class="section-image">
+      <a href="images/alignimals/p1.png" target="_blank" rel="noopener noreferrer" aria-label="Persona 1 image">
+        <img src="images/alignimals/p1.png" alt="Project brief" class="responsive">
+      </a>
+      <a href="images/alignimals/p2.png" target="_blank" rel="noopener noreferrer" aria-label="Persona 2 image">
+        <img src="images/alignimals/p2.png" alt="Project brief" class="responsive">
+      </a>
+      <a href="images/alignimals/p3.png" target="_blank" rel="noopener noreferrer" aria-label="Persona 3 image">
+        <img src="images/alignimals/p3.png" alt="Project brief" class="responsive">
+      </a>
+    </div>
+   
+
+    <h3 class="section-subtitle indented">Competitive Analysis</h3>
+    <p class="section-lead centered-left">A competitive analysis was also done in order to gain a better understanding of the games that the participants in the initial interview mentioned by name. Doing this allowed even further visualization of the information observed during the affinity diagram. The chart allowed an at-a-glance understanding of the types of content the interview participants interacted with in other similar games. This information acted as a great starting point for the type of content Alignimals might want to incorporate into its experience, in essence, taking the best parts of other popular games. </p>
+    <div class="section-image">
+      <a href="images/alignimals/Competitive Analysis.png" target="_blank" rel="noopener noreferrer" aria-label="competitive analysis image">
+        <img src="images/alignimals/Competitive Analysis.png" alt="Project brief" class="responsive">
+      </a>
+    </div>
+
+
+    </div>
+</section>
+<!-- Initial  Section END-->
+
+<!-- Research Section -->
+<section id="item2" class="wrapper section-block" aria-labelledby="item2-title">
+  <div class="spotlight">
+    <!-- Header row: Number + underlined main title (left aligned) -->
+    <div class="section-header left">
+      <a class="section-number" href="#content-section" aria-label="Back to content">02</a>
+      <h2 id="item2-title" class="section-main-title"><u>Research and Framework</u></h2>
+    </div>
+
+    <h3 class="section-subtitle indented">Card Sort & Initial Information Architecture </h3>
+
+    <p class="section-lead centered-left">
+      A remote open card sort was conducted with 16 initial participants using OptimalWorkshop. The goal of this card sort was to start collecting information for the creation of the initial information architecture as well as better understand the potential terminology I could use for menus and buttons. Users were given cards describing various features of the game decided through the competitive analysis and initial interviews. Below is a dendrogram created using the information collected from this card sort displaying the best merge methods for the content which was planned to be included. 
+    </p>
+
+    <div class="section-image">
+      <a href="images/alignimals/Best Merge.png" target="_blank" rel="noopener noreferrer" aria-label="Open Project Brief image">
+        <img src="images/alignimals/Best Merge.png" alt="Project brief" class="responsive">
+      </a>
+    </div>
+
+      <h3 class="section-subtitle indented"></h3>
+    <p class="section-lead centered-left">With the information on what content users expected, where they expected it, and what content they tended to group together, an initial information architecture could now be created to plan out the structure of the app, the connections within it, and titles for screens. This initial work was made with the understanding that it was not final, not perfect, and expected to be iterated on. However, the benefits of this work came to fruition during the created of the initial wireframes and for the tree test as it allowed for a solid foundational structure to test upon. </p>
+    <div class="section-image">
+      <a href="images/alignimals/Initial Information Architecture.png" target="_blank" rel="noopener noreferrer" aria-label="initial information architecture image">
+        <img src="images/alignimals/Initial Information Architecture.png" alt="Project brief" class="responsive">
+      </a>
+    </div>
+
+    <h3 class="section-subtitle indented">Initial Low-Fidelity Wireframes</h3>
+
+    <p class="section-lead centered-left">
+      Using all the information collected thus far, from the interviews, to the information architecture molded by the card sort, initial low-fidelity wireframes were created through multiple iterations to visualize the initial design and navigation thus far. The image below was the low-fidelity wireframes that were ended on, they kept the structure simple and the navigation seemed easiest for users to move through. Inspiration was taken from various other mobile games mentioned in the initial interviews, most notably the UI organization and placement. 
+    </p>
+
+    <div class="section-image">
+      <a href="images/alignimals/Initial Wireframes.png" target="_blank" rel="noopener noreferrer" aria-label="initial wireframes image">
+        <img src="images/alignimals/Initial Wireframes.png" alt="Project brief" class="responsive">
+      </a>
+    </div>
+
+    <h3 class="section-subtitle indented">Tree Test</h3>
+
+    <p class="section-lead centered-left">
+      As an initial step in iterating on the wireframes, a tree test was conducted to evaluate and improve the site’s navigation and information architecture. The test revealed confusion around where certain content was expected to be located. While participants were largely successful in navigating to gameplay and the staff hiring sections (90% and 100% success rates, respectively), they struggled to locate “Your Collection.” Seventy percent of participants failed to find this section, and the remaining 30% arrived only indirectly. Notably, no participant’s first click led to the correct “Exploration”  page under “Your Collection”, highlighting a key navigation issue (Figures 1–3).
+    </p>
+
+    <div class="section-image">
+      <a href="images/alignimals/Tree Test Results.png" target="_blank" rel="noopener noreferrer" aria-label="tree test results image">
+        <img src="images/alignimals/Tree Test Results.png" alt="Project brief" class="responsive">
+      </a>
+    </div>
+
+    <h3 class="section-subtitle indented"></h3>
+
+    <p class="section-lead centered-left">
+      AAs a result of these findings, the collection section was moved into the “Animal Info” page in the reworked information architecture and the Exploration section was remade to only house the path towards the game play. This decision allowed us to line up our navigation with user expectations which would prevent any confusion or incorrect actions when navigating to important, commonly used features of the game. 
+    </p>
+
+    <h3 class="section-subtitle indented">User Flows</h3>
+
+    <div class="section-image">
+      <a href="images/alignimals/Flow1.png" target="_blank" rel="noopener noreferrer" aria-label="user flows image">
+        <img src="images/alignimals/Flow1.png" alt="Project brief" class="responsive">
+      </a>
+    </div>
+
+    <p class="section-lead centered-left">
+      Prior tree test results showed that 90% of participants successfully navigated to the gameplay section, with 60% arriving directly, reinforcing the clarity and efficiency of this user flow, which requires only two clicks after the initial exploration choice. For the remaining 10% who took an incorrect path, the interface provides clear opportunities to recover, allowing users to return to the home page from any section with a single click. Additionally, since 30% of participants did not reach the goal directly and risked becoming lost, navigation options were refined to reduce confusion. The home page buttons were renamed from “Animal Exploration” and “Animal Info” to “Exploration” and “Animals,” preserving the original intent while creating clearer distinctions to support more accurate user choices.
+    </p>
+
+    <div class="section-image">
+      <a href="images/alignimals/Flow2.png" target="_blank" rel="noopener noreferrer" aria-label="user flows image">
+        <img src="images/alignimals/Flow2.png" alt="Project brief" class="responsive">
+      </a>
+    </div>
+
+    <p class="section-lead centered-left">
+      This user flow was more complex than the previous one, as it required users to navigate deeper into the application. In ideal conditions, users could reach the hiring screen in two to three clicks; however, the increased depth introduced more screens and opportunities for misnavigation. To address this, the design emphasized clear recovery options and minimized navigation layers, reducing the need to repeatedly use the back button. Despite the added complexity, participants achieved a 100% success rate in reaching the hiring section, with only 10% arriving indirectly. As a result, the “Management” label was retained, as there was no evidence that changing it would improve navigation or reduce errors.
+      <br>
+      <br>
+      One final important thing to note is how the “Failure” conditions end up being relatively deep into both user flows because of how many opportunities users are given to return towards the correct path. 
+          </p>
+    
+          <h3 class="section-subtitle indented">Finalized Information Architecture</h3>
+
+    <p class="section-lead centered-left">
+      The revised information architecture integrated insights from the card sort and tree test, along with smaller refinements such as simplifying section names (e.g., renaming “Animal Exploration” to “Exploration”). The diagram was also expanded to better represent deeper navigation levels and their associated features. Additional updates included introducing a Shop section and integrating the “Your Collection” area into the “Animal Info” section. In the diagram, blue highlights indicate interactions that lead to deeper pages, while red highlights represent actions that return users to previous sections, either via a back button or task completion.
+    </p>
+
+    <div class="section-image">
+      <a href="images/alignimals/Information Architecture.png" target="_blank" rel="noopener noreferrer" aria-label="tree test results image">
+        <img src="images/alignimals/Information Architecture.png" alt="Project brief" class="responsive">
+      </a>
+    </div>
+
+  </div>
+</section>
+<!-------------------- Resarch Section End----------------------->
+
+
+
+<!-- ---------------Iteration and Prototype ---------------->
+<section id="item3" class="wrapper section-block" aria-labelledby="item3-title">
+  <div class="spotlight">
+    <!-- Header row: Number + underlined main title (left aligned) -->
+    <div class="section-header left">
+      <a class="section-number" href="#content-section" aria-label="Back to content">03</a>
+      <h2 id="item3-title" class="section-main-title"><u>Wireframe Iteration and Prototype</u></h2>
+    </div>
+ 
+    <h3 class="section-subtitle indented">Updated Wireframe</h3>
+    <p class="section-lead centered-left">
+      As mentioned in previous sections, various changes were made and areas expanded upon or moved which has led to the need for reworking the navigation UI to reflect the new direction taken since the initial wireframes. For example, instead of the four buttons on the main screen present in the initial wireframes, now the UI has an additional smaller “Options” button and the larger fourth button is now used to lead to the shop which was not present in the initial wireframes. Additionally the reworked wireframes now include pages deeper in the navigation which would now assist in the creation of an initial prototype. 
+    </p>
+    <!-- Optional image area (centered) -->
+    <div class="section-image">
+      <a href="images/alignimals/Reworked Wireframes.png" target="_blank" rel="noopener noreferrer" aria-label="reworked wireframes image">
+        <img src="images/alignimals/Reworked Wireframes.png" alt="Project brief" class="responsive">
+      </a>
+    </div>
+
+  <h3 class="section-subtitle indented">Prototype</h3>
+    <!-- Optional image area (centered) -->
+
+    <p class="section-lead centered-left">
+      Building on the revised wireframes and updated information architecture, an initial prototype was created to visualize the refined navigation and screen flow. This prototype combines the structural framework established in the wireframes with early visual elements from the emerging design system. Presented in video format, it demonstrates how users would move through key paths within the application, helping to validate layout decisions, navigation changes, and overall flow before moving into higher-fidelity design and implementation.
+    </p>
+
+   <video autoplay muted loop class="responsive-video">
+  <source src="/images/Alignimals/videoalignimals.webm" type="video/webm">
+</video>
+  
+  </div>
+</section>
+<!-- Iteration and prototype Section End -->
+
+<!-- Design System Section Start -->
+<section id="item4" class="wrapper section-block" aria-labelledby="item4-title">
+  <div class="spotlight">
+    <!-- Header row: Number + underlined main title (left aligned) -->
+    <div class="section-header left">
+      <a class="section-number" href="#content-section" aria-label="Back to content">04</a>
+      <h2 id="item4-title" class="section-main-title"><u>Design System</u></h2>
+    </div>
+    
+  <h3 class="section-subtitle indented">Visual Elements for a cohesive experience </h3>
+    <p class="section-lead centered-left">
+      To support consistency and scalability, a foundational design system was established for the project. This system defines the core visual language, including color palette, typography, and key UI elements such as frames, borders, containers, and icons. The design system serves as a reference for the current prototype and provides a flexible framework that can be expanded on, ensuring visual cohesion across future features and screens.
+    </p>
+    <!-- Optional image area (centered) -->
+    <div class="section-image">
+      <a href="images/alignimals/design system.png" target="_blank" rel="noopener noreferrer" aria-label="Open initial wireframes image">
+        <img src="images/alignimals/design system.png" alt="Flows and task" class="responsive">
+      </a>
+    </div>
+
+  </div>
+    </section>
+
+<!-- Design System Section End -->
+
+<!-- Accessibility Evaluation Section Start -->
+<section id="item5" class="wrapper section-block" aria-labelledby="item5-title">
+  <div class="spotlight">
+    <!-- Header row: Number + underlined main title (left aligned) -->
+    <div class="section-header left">
+      <a class="section-number" href="#content-section" aria-label="Back to content">05</a>
+      <h2 id="item5-title" class="section-main-title"><u>Accessibility Evaluation</u></h2>
+    </div>
+    
+  <h3 class="section-subtitle indented">Text Hierarchy </h3>
+    <p class="section-lead centered-left">
+     Clear text hierarchy principles were applied throughout the project to support accessibility and readability. Headings are consistently the most prominent text on each screen, while primary informational content is sized larger than supporting descriptor text (14px). This hierarchy improves legibility and scannability, making content sections easy to distinguish through a combination of text sizing, borders, and background treatments.
+    </p>
+
+    <h3 class="section-subtitle indented">Text Size  </h3>
+    <p class="section-lead centered-left">
+     Text sizing is consistent between similar use cases. Screen Headings are the largest with a near 60px size (Exact sizing is not available due to the custom font used), section headings on pages are then the second largest size (near 46px), the last consistent text size used was for miscellaneous text (14px). This 14px text was used for every piece of text apart from the headings, section headings, and button text. Those buttons have a variety of text sizing according to the button size, thus aren't consistent in size. They range from 14px to around 30px. 
+    </p>
+
+    <h3 class="section-subtitle indented">Contrast</h3>
+    <p class="section-lead centered-left">
+    Initial evaluation revealed that several elements did not meet WCAG AA contrast guidelines, with white text on slightly dark backgrounds sometimes reaching ratios as low as 2.5:1. To address this, backgrounds were darkened and smaller text received dark outlines, increasing contrast ratios to at least 4.5:1 and ensuring WCAG AA compliance.
+    </p>
+    
+    <h3 class="section-subtitle indented">Moving Content</h3>
+    <p class="section-lead centered-left">
+    The prototype includes subtle motion, such as the gentle bouncing of animal sprites, but contains no flashing or blinking elements, minimizing any risk of photosensitivity or seizures. While the risk is low, a settings option allows users to disable all cosmetic motion, including idle animal animations, for added accessibility.
+    </p>
+
+    <h3 class="section-subtitle indented">Color Blindness</h3>
+    <p class="section-lead centered-left">
+    To accommodate users with color vision deficiencies, the prototype avoids relying on color to convey critical information. Buttons are clearly labeled and consistently styled, ensuring they remain identifiable without color. Similarly, interactive elements in the gameplay screen, such as bubbles, use unique visual markers, like distinct animal icons, so they can be distinguished regardless of color perception.
+    </p>
+    
+
+  </div>
+    </section>
+<!-- Accessibility Evaluation section end -->
+
+<!-- Afterthoughts Section Start -->
+<section id="item6" class="wrapper section-block" aria-labelledby="item6-title">
+  <div class="spotlight">
+    <!-- Header row: Number + underlined main title (left aligned) -->
+    <div class="section-header left">
+      <a class="section-number" href="#content-section" aria-label="Back to content">06</a>
+      <h2 id="item6-title" class="section-main-title"><u> Afterthoughts</u></h2>
+    </div>
+
+    <h3 class="section-subtitle indented"> A Short Retrospective On The Project</h3>
+    <p class="section-lead centered-left">
+     As with any type of work one does, there is a lot I'm unhappy about, and a lot I believe I was blinded about during the design process. For starters I will say that I'm content with the research done for this project, a lot of my gripes rest not on that, but on the design side of the work.
+      <br><br>
+  If given enough time and resources I would have used different visual elements for this project. However, given the time I had as well as not being a pixel artist, I was limited to what I could find for free from various talented artists. As a result, I believe the prototype does not have a 100% cohesive look to it precisely because it's a hodgepodge of work from various artists including myself.
+<br><br>
+  Expanding on that previous point, I didn't like how a lot of the buttons and framings turned out. This was one aspect I believe I was blinded about during the design process. I believe I was too invested in keeping a cohesive “pixel” theme and I ended up settling for subpar work in some sections just because I thought they fit thematically at the time. If I was to work on this project further I would first attempt to collect more outside opinions then potentially rework some of the navigation UI visuals.
+<br><br>
+  Keeping up with what I'd do if I continued working on the project, usability testing would be what I pursued next using the prototype. Tasks would ideally partially focus on aspects of the project that were part of previous research, such as the navigation, making sure the changes made using the previous data were successful. Another task would ideally ask participants to go through the zoo building process, testing the other important mechanic of the game.
+<br><br>
+  Finally, as to not be so somber, I was content with the information architecture and overall user experience in regards to navigation. Thankfully because of this, I believe that even if I went back and reworked some of the UI as I mentioned, as a whole it wouldn't take too much time as the underlying work is something I feel is sound. 
+	
+    </p>
+
+   
+<!-- Afterthoughts Section End -->
+
+
+<div class="bottom-space"></div>
+    <script src="/js/appnobm.js"></script>
+  </body>
+</html>
+
