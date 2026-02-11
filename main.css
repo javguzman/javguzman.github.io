@@ -7,7 +7,7 @@
   body, html {
     height: 100%;
     font-family: Montserrat;
-    background-color: #f3e7ce;
+    background-color: #f2ecdf;
     color: #464d3a !important;
   }
   
@@ -655,5 +655,6 @@
     min-width: auto;
   }
 }
+
 
 
