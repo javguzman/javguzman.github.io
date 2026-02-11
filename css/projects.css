@@ -8,7 +8,7 @@
 body, html {
   height: 100%;
   font-family: 'Montserrat', sans-serif;
-  background-color: #f3e7ce;
+  background-color: #f2ecdf;
   color: #464d3a;
 }
 
@@ -687,4 +687,5 @@ h1, h2, h3 {
   margin: 0 auto;     /* keep it centered inside .section-image (the container is flex-centered) */
   border-radius: 6px; /* optional, matches other images */
   object-fit: contain;/* ensure the image stays fully visible */
+
 }
