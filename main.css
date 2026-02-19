@@ -10,15 +10,38 @@
     background-color: #f2ecdf;
     color: #464d3a !important;
   }
+
+/* Make text and media sit on the same stacking level as the paper background */
+:where(h1,h2,h3,h4,h5,h6,p,li,span,strong,em,small,blockquote,img,picture,figure,video,svg) {
+  position: relative; /* creates stacking context without layout shifts */
+  z-index: 2; /* match `body::before` (paper) */
+}
   
+  /* Base paper texture */
   body::before {
     content: "";
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     pointer-events: none;
     background: url('images/paperbackground.jpg') repeat;
-    opacity: 0.20;
-    z-index: 5; /* background texture */
+    opacity: 0.15; /* keep paper subtle */
+    z-index: 3; /* paper sits above watercolor now */
+  }
+
+  /* Stronger watercolor overlay on top of the paper texture */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    background-image: url('images/watercolortexture.png');
+    background-repeat: repeat; /* or use 'no-repeat' + 'background-size: cover' for a single large texture */
+    background-position: center center;
+    background-size: cover;
+    opacity: 0.65; /* stronger than the paper */
+    mix-blend-mode: multiply; /* blend the watercolor into paper
+                                (try 'overlay' or 'screen' for different effects) */
+    z-index: 1; /* moved below paper so watercolor is under paper */
   }
   
   h1, h2 {
@@ -83,6 +106,7 @@
     align-items: center;
     gap: 0;
     transition: all 0.5s ease;
+    z-index: 8;
     
   }
   @media (max-width: 999px) {
