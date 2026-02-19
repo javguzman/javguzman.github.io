@@ -20,8 +20,31 @@ body::before {
   background: url('/images/paperbackground.jpg') repeat;
   opacity: 0.2;
   pointer-events: none;
-  z-index: 1;
+  z-index: 3;
 }
+
+/* Ensure text and media render above background layers */
+:where(h1,h2,h3,h4,h5,h6,p,li,span,strong,em,small,blockquote,img,picture,figure,video,svg) {
+  position: relative;
+  z-index: 2;
+}
+
+/* Watercolor overlay underneath the paper texture */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url('/images/watercolortexture.png');
+  background-repeat: repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.7; /* subtle underlay */
+  mix-blend-mode: multiply;
+  z-index: 1; /* behind paper (which is z-index:3) */
+}
+
+
 
 /* --- Typography --- */
 h1, h2, h3 {

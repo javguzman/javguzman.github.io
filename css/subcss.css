@@ -12,15 +12,37 @@ background-color: #f2ecdf;
 color: #464d3a;
 }
 
+/* Make text and media sit on the same stacking level as the paper background */
+:where(h1,h2,h3,h4,h5,h6,p,li,span,strong,em,small,blockquote,img,picture,figure,video,svg) {
+  position: relative; /* creates stacking context without layout shifts */
+  z-index: 2; /* match `body::before` (paper) */
+}
+
 /* ================= BACKGROUND TEXTURE ================= */
+/* Base paper texture */
 body::before {
 content: "";
 position: fixed;
-inset: 0;
+top: 0; left: 0; right: 0; bottom: 0;
 pointer-events: none;
 background: url('/images/paperbackground.jpg') repeat;
-opacity: 0.2;
-z-index: 5;
+opacity: 0.15; /* keep paper subtle */
+z-index: 3; /* paper sits above watercolor */
+}
+
+/* Watercolor overlay under the paper */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  background-image: url('/images/watercolortexture.png');
+  background-repeat: repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.65; /* adjust to taste */
+  mix-blend-mode: multiply;
+  z-index: 1; /* below paper */
 }
 
 /* ================= TYPOGRAPHY ================= */
